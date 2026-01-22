@@ -2,7 +2,6 @@
 
 > A Laravel-based news aggregation platform with AI-powered article summarization and intelligent content personalization.
 
-**🎯 Technical Interview Project for Newboxes**
 
 [![Laravel](https://img.shields.io/badge/Laravel-10.x-red.svg)](https://laravel.com)
 [![PHP](https://img.shields.io/badge/PHP-8.1%2B-blue.svg)](https://php.net)
@@ -72,11 +71,6 @@
 ✅ **Clean Code** - Follows Laravel best practices and PSR-12  
 ✅ **Visual Diagrams** - 6 professional diagrams explaining the system  
 
-### Time Investment
-- **Development**: 6-8 hours
-- **Documentation**: 3-4 hours
-- **Total Lines of Code**: ~2,500 lines
-- **Documentation**: 5,000+ words
 
 ---
 
@@ -584,26 +578,6 @@ npm run dev
 
 ---
 
-## 💰 Cost Analysis
-
-### Development (Mock Services)
-- **NewsAPI**: $0/month (using mock)
-- **OpenAI**: $0/month (using mock)
-- **Total**: **$0/month** ✅
-
-### Production (1,000 users, 10K articles/month)
-- **NewsAPI**: Free tier (100/day) or $449/month (unlimited)
-- **OpenAI**: ~$20/month (10K summaries @ $0.002 each)
-- **Server**: $20-50/month (VPS)
-- **Total**: **$40-520/month**
-
-### Budget Option
-- **RSS Feeds**: Free
-- **Hugging Face (Open-source AI)**: Free
-- **Server**: $20/month
-- **Total**: **$20/month** ✅
-
----
 
 ## 🤝 Contributing
 
