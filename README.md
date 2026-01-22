@@ -1,66 +1,334 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 📰 Personalized News Feed Platform
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+A Laravel-based news aggregation platform with AI-powered summarization and personalized content delivery.
 
-## About Laravel
+**Live Demo**: [Add if deployed] | **Documentation**: [Link to docs]
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+---
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## 🎯 Project Overview
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+This project was developed as a technical interview submission for **Newboxes**, demonstrating:
+- System architecture design
+- AI/ML integration
+- Laravel expertise
+- Database design
+- Clean code practices
+- Production-ready implementation
 
-## Learning Laravel
+---
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## ✨ Key Features
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+- 📰 **Multi-source News Aggregation** from NewsAPI
+- 🤖 **AI-Powered Summaries** using OpenAI GPT-3.5
+- 🎯 **Personalized Feed** based on user preferences
+- 📊 **Reading History** tracking
+- 💾 **Bookmark Articles** for later
+- 🔍 **Category Filtering** (Technology, Business, Sports, etc.)
+- 📱 **Responsive Design** with Tailwind CSS
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+---
 
-## Laravel Sponsors
+## 🏗️ Architecture
+```
+┌─────────────────────────────────────┐
+│     Presentation Layer              │  Blade + Tailwind CSS
+├─────────────────────────────────────┤
+│     Application Layer               │  Controllers + Routes
+├─────────────────────────────────────┤
+│     Business Logic Layer            │  Services + Jobs
+├─────────────────────────────────────┤
+│     Data Access Layer               │  Eloquent Models
+├─────────────────────────────────────┤
+│     Infrastructure Layer            │  Queue + External APIs
+└─────────────────────────────────────┘
+```
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+**Key Design Patterns:**
+- Repository Pattern
+- Service Layer Architecture
+- Queue-based Processing
+- Interface-based Design
 
-### Premium Partners
+---
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+## 💻 Tech Stack
 
-## Contributing
+### Backend
+- **Framework**: Laravel 10.x
+- **Language**: PHP 8.1+
+- **Database**: MySQL 8.0
+- **Queue**: Laravel Queue (database driver)
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### Frontend
+- **Template Engine**: Blade
+- **CSS Framework**: Tailwind CSS
+- **JavaScript**: Vanilla JS
 
-## Code of Conduct
+### External Services
+- **News API**: NewsAPI.org
+- **AI API**: OpenAI GPT-3.5
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+---
 
-## Security Vulnerabilities
+## 🚀 Installation
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+### Prerequisites
+- PHP 8.1 or higher
+- Composer
+- MySQL 8.0 or higher
+- Node.js & NPM
 
-## License
+### Setup Steps
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+1. **Clone the repository**
+```bash
+git clone https://github.com/yashpalmodi002/news-feed-platform.git
+cd news-feed-platform
+```
+
+2. **Install PHP dependencies**
+```bash
+composer install
+```
+
+3. **Install Node dependencies**
+```bash
+npm install
+```
+
+4. **Environment Configuration**
+```bash
+cp .env.example .env
+php artisan key:generate
+```
+
+5. **Configure Database**
+
+Edit `.env` file:
+```env
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=news_feed
+DB_USERNAME=root
+DB_PASSWORD=your_password
+```
+
+6. **Configure API Keys (Optional)**
+```env
+# For mock services (no API keys needed)
+USE_MOCK_SERVICES=true
+
+# For production (requires API keys)
+NEWSAPI_KEY=your_newsapi_key
+OPENAI_API_KEY=your_openai_key
+```
+
+7. **Create Database**
+```bash
+mysql -u root -p
+CREATE DATABASE news_feed;
+exit;
+```
+
+8. **Run Migrations**
+```bash
+php artisan migrate --seed
+```
+
+9. **Build Assets**
+```bash
+npm run build
+```
+
+10. **Start Application**
+```bash
+# Terminal 1: Laravel server
+php artisan serve
+
+# Terminal 2: Queue worker
+php artisan queue:work
+
+# Terminal 3: Fetch news
+php artisan news:fetch
+```
+
+---
+
+## 🎮 Usage
+
+### Default Test Account
+- **Email**: test@example.com
+- **Password**: password
+
+### Application Flow
+1. Login or register
+2. Select preferred topics
+3. View personalized news feed
+4. Read articles with AI summaries
+5. Save articles for later
+6. System tracks reading history
+
+---
+
+## 📊 Database Schema
+
+**Core Tables:**
+- `users` - User accounts
+- `categories` - News topics
+- `sources` - News publishers
+- `articles` - News with AI summaries
+- `user_preferences` - User topic selections
+- `reading_history` - Reading tracking
+- `saved_articles` - Bookmarks
+
+[View detailed schema →](docs/database-schema.md)
+
+---
+
+## 🎨 Project Structure
+```
+news-feed-platform/
+├── app/
+│   ├── Console/Commands/    # Artisan commands
+│   ├── Http/Controllers/    # Request handlers
+│   ├── Models/              # Eloquent models
+│   ├── Services/            # Business logic
+│   ├── Jobs/                # Queue jobs
+│   └── Repositories/        # Data access
+├── database/
+│   ├── migrations/          # Schema definitions
+│   └── seeders/             # Sample data
+├── resources/
+│   └── views/               # Blade templates
+└── routes/
+    └── web.php              # Application routes
+```
+
+---
+
+## 🔧 Configuration
+
+### Mock Services (Development)
+```env
+USE_MOCK_SERVICES=true
+```
+- No API costs
+- Instant responses
+- Perfect for demo
+
+### Real APIs (Production)
+```env
+USE_MOCK_SERVICES=false
+NEWSAPI_KEY=your_actual_key
+OPENAI_API_KEY=your_actual_key
+```
+
+---
+
+## 🧪 Testing
+```bash
+# Run all tests
+php artisan test
+
+# Run specific test suite
+php artisan test --testsuite=Feature
+```
+
+---
+
+## 📈 Scalability
+
+### Current (POC)
+- Single server
+- 10-100 concurrent users
+
+### Phase 1 (100-1000 users)
+- Redis caching
+- Multiple queue workers
+- Database read replicas
+
+### Phase 2 (1000-10000 users)
+- Load balancer
+- CDN for images
+- Elasticsearch for search
+
+### Phase 3 (10000+ users)
+- Microservices
+- Distributed caching
+- Auto-scaling
+
+---
+
+## 🔐 Security Features
+
+- ✅ Authentication (Laravel Breeze)
+- ✅ CSRF Protection
+- ✅ SQL Injection Prevention
+- ✅ XSS Protection
+- ✅ Password Hashing (bcrypt)
+- ✅ API Rate Limiting
+
+---
+
+## 📝 Documentation
+
+- [System Architecture](docs/architecture.md)
+- [AI Pipeline](docs/ai-pipeline.md)
+- [Database Schema](docs/database-schema.md)
+- [API Documentation](docs/api.md)
+- [Deployment Guide](docs/deployment.md)
+
+---
+
+## 🤝 Contributing
+
+This is a technical interview project. Contributions are welcome after review.
+
+1. Fork the repository
+2. Create feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to branch (`git push origin feature/AmazingFeature`)
+5. Open Pull Request
+
+---
+
+## 📄 License
+
+This project is open-source software licensed under the MIT license.
+
+---
+
+## 👤 Author
+
+**Yash Parmeshwar Modi**
+
+- GitHub: [@yashpalmodi002](https://github.com/yashpalmodi002)
+- LinkedIn: [Add your LinkedIn]
+- Email: [Your Email]
+
+---
+
+## 🙏 Acknowledgments
+
+- **Newboxes** - For the technical interview opportunity
+- **NewsAPI.org** - News aggregation service
+- **OpenAI** - AI summarization
+- **Laravel Community** - Framework and support
+- **Tailwind CSS** - UI styling
+
+---
+
+## 📞 Support
+
+For questions or issues:
+- Create an issue on GitHub
+- Email: [your-email@example.com]
+
+---
+
+**Built with ❤️ for Newboxes Technical Interview**
+
+*Time invested: 6-8 hours | Every line written with care*
