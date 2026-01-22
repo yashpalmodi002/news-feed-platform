@@ -623,34 +623,6 @@ This project is open-source software licensed under the [MIT License](LICENSE).
 
 ---
 
-## 👤 Author
-
-**Yash Parmeshwar Modi**
-
-- **GitHub**: [@yashpalmodi002](https://github.com/yashpalmodi002)
-- **LinkedIn**: [Add your LinkedIn URL]
-- **Email**: [your-email@example.com]
-- **Portfolio**: [your-portfolio-url]
-
----
-
-## 🙏 Acknowledgments
-
-- **Newboxes** - For the technical interview opportunity
-- **NewsAPI.org** - News aggregation service
-- **OpenAI** - AI summarization technology
-- **Laravel Community** - Framework and ecosystem
-- **Tailwind Labs** - CSS framework
- 
-
----
-
-**🚀 Built with ❤️ for Newboxes Technical Interview**
-
-*Every line of code written with care | Documentation crafted for clarity | Architecture designed for scale*
-
----
-
 ## 🔗 Repository
 
 **Live Repository**: https://github.com/yashpalmodi002/news-feed-platform
