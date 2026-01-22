@@ -1,0 +1,47 @@
+graph TB
+    subgraph "User Interface Layer"
+        UI[Web Browser<br/>Blade Templates + Tailwind CSS]
+    end
+    
+    subgraph "Application Layer"
+        Routes[Routes/Middleware]
+        Controllers[Controllers<br/>- FeedController<br/>- ArticleController<br/>- PreferenceController]
+    end
+    
+    subgraph "Business Logic Layer"
+        Services[Services<br/>- NewsService<br/>- AIService<br/>- FeedService]
+        Jobs[Queue Jobs<br/>- FetchNewsJob<br/>- GenerateSummaryJob]
+    end
+    
+    subgraph "Data Access Layer"
+        Models[Eloquent Models<br/>- User<br/>- Article<br/>- Category]
+    end
+    
+    subgraph "External Services"
+        NewsAPI[NewsAPI.org<br/>News Aggregation]
+        OpenAI[OpenAI GPT-3.5<br/>AI Summarization]
+    end
+    
+    subgraph "Data Storage"
+        MySQL[(MySQL Database<br/>- users<br/>- articles<br/>- categories)]
+        Cache[(Redis Cache<br/>Optional)]
+    end
+    
+    UI --> Routes
+    Routes --> Controllers
+    Controllers --> Services
+    Controllers --> Models
+    Services --> Jobs
+    Services --> Models
+    Jobs --> NewsAPI
+    Jobs --> OpenAI
+    Models --> MySQL
+    Services --> Cache
+    
+    style UI fill:#e3f2fd
+    style Controllers fill:#fff3e0
+    style Services fill:#f3e5f5
+    style Models fill:#e8f5e9
+    style MySQL fill:#fce4ec
+    style NewsAPI fill:#fff9c4
+    style OpenAI fill:#fff9c4

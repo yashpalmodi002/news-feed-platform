@@ -1,0 +1,48 @@
+flowchart TD
+    Start([Scheduler Triggers<br/>Every Hour]) --> FetchJob[FetchNewsJob<br/>Dispatched]
+    
+    FetchJob --> NewsService{NewsService<br/>Mock or Real?}
+    
+    NewsService -->|Mock| MockData[Generate Mock<br/>News Articles]
+    NewsService -->|Real| NewsAPI[Call NewsAPI.org<br/>Fetch Articles]
+    
+    MockData --> ValidateData[Validate Article Data]
+    NewsAPI --> ValidateData
+    
+    ValidateData --> CheckDuplicate{Check if Article<br/>Already Exists?}
+    
+    CheckDuplicate -->|Yes| Skip[Skip Article]
+    CheckDuplicate -->|No| StoreArticle[Store Article<br/>Status: pending]
+    
+    StoreArticle --> DispatchAI[Dispatch<br/>GenerateSummaryJob]
+    
+    DispatchAI --> QueueWorker[Queue Worker<br/>Picks Up Job]
+    
+    QueueWorker --> AIService{AIService<br/>Mock or Real?}
+    
+    AIService -->|Mock| MockSummary[Generate Mock<br/>Summary]
+    AIService -->|Real| OpenAI[Call OpenAI API<br/>GPT-3.5 Turbo]
+    
+    MockSummary --> UpdateArticle[Update Article<br/>- Add Summary<br/>- Status: processed]
+    OpenAI --> UpdateArticle
+    
+    OpenAI -->|API Fails| Fallback[Use Description<br/>as Fallback]
+    Fallback --> UpdateArticle
+    
+    UpdateArticle --> Available[Article Available<br/>in User Feeds]
+    
+    Available --> End([End])
+    Skip --> End
+    
+    style Start fill:#e1f5fe
+    style FetchJob fill:#fff9c4
+    style MockData fill:#f3e5f5
+    style NewsAPI fill:#f3e5f5
+    style StoreArticle fill:#c8e6c9
+    style DispatchAI fill:#fff3e0
+    style QueueWorker fill:#ffe0b2
+    style MockSummary fill:#f3e5f5
+    style OpenAI fill:#f3e5f5
+    style UpdateArticle fill:#c8e6c9
+    style Available fill:#a5d6a7
+    style End fill:#e1f5fe

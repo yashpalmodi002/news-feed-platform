@@ -1,0 +1,80 @@
+erDiagram
+    users ||--o{ user_preferences : has
+    users ||--o{ reading_history : has
+    users ||--o{ saved_articles : has
+    
+    categories ||--o{ user_preferences : "preferred by"
+    categories ||--o{ articles : contains
+    
+    sources ||--o{ articles : publishes
+    
+    articles ||--o{ reading_history : "read by"
+    articles ||--o{ saved_articles : "saved by"
+    
+    users {
+        bigint id PK
+        string name
+        string email UK
+        string password
+        timestamp email_verified_at
+        timestamp created_at
+    }
+    
+    categories {
+        bigint id PK
+        string name
+        string slug UK
+        text description
+        string icon
+        boolean is_active
+        timestamp created_at
+    }
+    
+    sources {
+        bigint id PK
+        string name
+        string url
+        string logo_url
+        boolean is_active
+        timestamp created_at
+    }
+    
+    articles {
+        bigint id PK
+        bigint category_id FK
+        bigint source_id FK
+        string title
+        text description
+        longtext content
+        text summary
+        string url UK
+        string image_url
+        string author
+        timestamp published_at
+        enum status
+        timestamp processed_at
+        timestamp created_at
+    }
+    
+    user_preferences {
+        bigint id PK
+        bigint user_id FK
+        bigint category_id FK
+        timestamp created_at
+    }
+    
+    reading_history {
+        bigint id PK
+        bigint user_id FK
+        bigint article_id FK
+        timestamp read_at
+        int time_spent
+        timestamp created_at
+    }
+    
+    saved_articles {
+        bigint id PK
+        bigint user_id FK
+        bigint article_id FK
+        timestamp created_at
+    }

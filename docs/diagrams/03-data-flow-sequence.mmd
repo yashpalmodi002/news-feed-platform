@@ -1,0 +1,67 @@
+sequenceDiagram
+    participant User
+    participant Browser
+    participant Controller
+    participant Service
+    participant Model
+    participant Database
+    participant Queue
+    participant AI
+    
+    Note over User,AI: User Registration & Topic Selection
+    User->>Browser: Register Account
+    Browser->>Controller: POST /register
+    Controller->>Model: Create User
+    Model->>Database: INSERT users
+    Database-->>Model: User Created
+    Model-->>Controller: User Object
+    Controller-->>Browser: Redirect to Topics
+    
+    User->>Browser: Select Topics
+    Browser->>Controller: POST /preferences
+    Controller->>Model: Save Preferences
+    Model->>Database: INSERT user_preferences
+    Database-->>Controller: Success
+    Controller-->>Browser: Redirect to Feed
+    
+    Note over User,AI: News Fetching & AI Processing
+    Browser->>Controller: GET /feed
+    Controller->>Service: Check Articles
+    Service->>Database: Query Articles
+    Database-->>Service: No Articles
+    Service-->>Controller: Empty Feed
+    
+    Note over Queue,AI: Background Process
+    Queue->>Service: FetchNewsJob
+    Service->>AI: Fetch News
+    AI-->>Service: Raw Articles
+    Service->>Database: Store Articles (pending)
+    
+    Queue->>Service: GenerateSummaryJob
+    Service->>AI: Request Summary
+    AI-->>Service: AI Summary
+    Service->>Database: Update Article (processed)
+    
+    Note over User,AI: Personalized Feed Display
+    Browser->>Controller: GET /feed (refresh)
+    Controller->>Service: Get Personalized Feed
+    Service->>Database: Query by User Preferences
+    Database-->>Service: Matching Articles
+    Service-->>Controller: Article List
+    Controller-->>Browser: Render Feed
+    Browser-->>User: Display Articles
+    
+    Note over User,AI: Article Reading
+    User->>Browser: Click Article
+    Browser->>Controller: GET /articles/{id}
+    Controller->>Model: Get Article
+    Model->>Database: SELECT article
+    Database-->>Model: Article Data
+    Model-->>Controller: Article Object
+    Controller-->>Browser: Render Article Page
+    Browser-->>User: Show Article + AI Summary
+    
+    User->>Browser: Leave Page
+    Browser->>Controller: POST /articles/{id}/read
+    Controller->>Model: Track Reading
+    Model->>Database: INSERT reading_history

@@ -1,0 +1,94 @@
+graph LR
+    subgraph Frontend
+        Blade[Blade Templates]
+        Tailwind[Tailwind CSS]
+        JS[Vanilla JavaScript]
+    end
+    
+    subgraph Controllers
+        FC[FeedController]
+        AC[ArticleController]
+        PC[PreferenceController]
+    end
+    
+    subgraph Services
+        NS[NewsService]
+        AS[AIService]
+        FS[FeedService]
+    end
+    
+    subgraph Jobs
+        FNJ[FetchNewsJob]
+        GSJ[GenerateSummaryJob]
+    end
+    
+    subgraph Models
+        U[User]
+        A[Article]
+        C[Category]
+        UP[UserPreference]
+        RH[ReadingHistory]
+    end
+    
+    subgraph External
+        NewsAPI[NewsAPI.org]
+        OpenAI[OpenAI API]
+    end
+    
+    Blade --> FC
+    Blade --> AC
+    Blade --> PC
+    
+    FC --> FS
+    AC --> A
+    PC --> UP
+    
+    FS --> Models
+    NS --> NewsAPI
+    AS --> OpenAI
+    
+    FNJ --> NS
+    GSJ --> AS
+    
+    style Frontend fill:#e3f2fd
+    style Controllers fill:#fff3e0
+    style Services fill:#f3e5f5
+    style Jobs fill:#ffe0b2
+    style Models fill:#e8f5e9
+    style External fill:#fff9c4
+```
+
+---
+
+## **Step 2: Convert Mermaid to PNG Images**
+
+Now let's convert these to PNG images:
+
+### **Option A: Use Mermaid Live Editor (Easiest)**
+
+1. Go to: https://mermaid.live/
+2. Copy each diagram code above
+3. Paste into the editor
+4. Click "Download PNG"
+5. Save with appropriate names
+
+### **Option B: Use VS Code Extension**
+
+1. Install "Markdown Preview Mermaid Support" extension
+2. Open each `.mmd` file
+3. Right-click diagram in preview
+4. Select "Export to PNG"
+
+---
+
+## **Step 3: Save Images**
+
+Save the PNG files as:
+```
+docs/images/
+├── system-architecture.png
+├── database-erd.png
+├── ai-pipeline.png
+├── data-flow.png
+├── user-journey.png
+└── component-architecture.png
