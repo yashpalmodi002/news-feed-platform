@@ -14,6 +14,7 @@
 ## 📋 Quick Links
 
 **📖 Complete Submission**: [SUBMISSION.md](SUBMISSION.md)  
+**🔑 API Setup Guide**: [docs/API-SETUP-GUIDE.md](docs/API-SETUP-GUIDE.md) | **⚡ Quick Reference**: [docs/API-QUICK-REFERENCE.md](docs/API-QUICK-REFERENCE.md)  
 **🏗️ Architecture**: [docs/1-SYSTEM-ARCHITECTURE.md](docs/1-SYSTEM-ARCHITECTURE.md)  
 **🤖 AI Pipeline**: [docs/2-AI-PIPELINE.md](docs/2-AI-PIPELINE.md)  
 **💾 Database**: [docs/3-DATABASE-SCHEMA.md](docs/3-DATABASE-SCHEMA.md)  
@@ -66,7 +67,7 @@
 
 ✅ **Complete Working POC** - Not just diagrams, fully functional application  
 ✅ **Production-Ready Architecture** - Scalable, maintainable design  
-✅ **Comprehensive Documentation** - 6 detailed documents (5,000+ words)  
+✅ **Comprehensive Documentation** - 8 detailed documents (10,000+ words)  
 ✅ **Mock Services** - Demo without API keys or costs  
 ✅ **Clean Code** - Follows Laravel best practices and PSR-12  
 ✅ **Visual Diagrams** - 6 professional diagrams explaining the system  
@@ -140,6 +141,7 @@
 - **NPM**: Latest version
 
 ### Installation (5 Minutes)
+
 ```bash
 # 1. Clone the repository
 git clone https://github.com/yashpalmodi002/news-feed-platform.git
@@ -248,6 +250,8 @@ php artisan news:fetch
 | Document | Description |
 |----------|-------------|
 | [📋 SUBMISSION.md](SUBMISSION.md) | Complete submission overview and project summary |
+| [🔑 API Setup Guide](docs/API-SETUP-GUIDE.md) | **Complete guide to configuring NewsAPI and OpenAI** |
+| [⚡ API Quick Reference](docs/API-QUICK-REFERENCE.md) | **Fast reference card for API keys** |
 | [🏗️ System Architecture](docs/1-SYSTEM-ARCHITECTURE.md) | Layered architecture, components, tech stack |
 | [🤖 AI Pipeline](docs/2-AI-PIPELINE.md) | Data flow, AI integration, error handling |
 | [💾 Database Schema](docs/3-DATABASE-SCHEMA.md) | ERD, tables, relationships, queries |
@@ -270,9 +274,10 @@ All diagrams are available in `docs/images/`:
 
 ## 🔧 Configuration
 
-### Development Mode (Mock Services)
+### Development Mode (Mock Services) - Recommended for Demo
 
 **No API keys needed!** Perfect for demo and development.
+
 ```env
 # .env configuration
 USE_MOCK_SERVICES=true
@@ -287,7 +292,14 @@ OPENAI_API_KEY=
 - ✅ No costs
 - ✅ Works offline
 
+**Perfect for:** Development, testing, demos, interviews
+
+---
+
 ### Production Mode (Real APIs)
+
+For production deployment with real news and AI summaries:
+
 ```env
 # .env configuration
 USE_MOCK_SERVICES=false
@@ -295,13 +307,44 @@ NEWSAPI_KEY=your_newsapi_key_here
 OPENAI_API_KEY=your_openai_key_here
 ```
 
-**Getting API Keys:**
-- **NewsAPI**: https://newsapi.org/register (Free: 100 requests/day)
-- **OpenAI**: https://platform.openai.com/api-keys (Pay-as-you-go: ~$0.002/summary)
+### Getting API Keys
+
+#### NewsAPI (Free Tier Available)
+- **Register:** https://newsapi.org/register
+- **Free Tier:** 100 requests/day
+- **Cost:** $0 (free tier) or $449/month (unlimited)
+- **Setup Time:** 2 minutes
+
+#### OpenAI (Pay-as-you-go)
+- **Sign up:** https://platform.openai.com/signup
+- **Get Key:** https://platform.openai.com/api-keys
+- **Free Credit:** $5 for new accounts (~2,500 summaries)
+- **Cost:** ~$0.002 per summary
+- **Setup Time:** 5 minutes
+
+### Complete API Setup Instructions
+
+📚 **Full Guide:** [docs/API-SETUP-GUIDE.md](docs/API-SETUP-GUIDE.md)  
+⚡ **Quick Reference:** [docs/API-QUICK-REFERENCE.md](docs/API-QUICK-REFERENCE.md)
+
+**The API Setup Guide includes:**
+- Step-by-step registration process (with screenshots)
+- API key format examples
+- Testing procedures
+- Troubleshooting common issues
+- Cost calculator
+- Security best practices
+
+**The Quick Reference includes:**
+- Fast setup commands
+- Switch between mock/real services
+- Interview talking points
+- Common error solutions
 
 ---
 
 ## 🗂️ Project Structure
+
 ```
 news-feed-platform/
 ├── app/
@@ -344,6 +387,8 @@ news-feed-platform/
 │       └── UserSeeder.php                # Create test user
 ├── docs/                                 # Complete documentation
 │   ├── images/                           # Visual diagrams
+│   ├── API-SETUP-GUIDE.md                # Complete API configuration guide
+│   ├── API-QUICK-REFERENCE.md            # Quick reference card
 │   ├── 1-SYSTEM-ARCHITECTURE.md
 │   ├── 2-AI-PIPELINE.md
 │   ├── 3-DATABASE-SCHEMA.md
@@ -385,6 +430,7 @@ news-feed-platform/
 | `saved_articles` | Bookmarks | Links users to saved articles |
 
 ### Key Relationships
+
 ```
 users (1) ──< user_preferences >── (N) categories
   │                                        │
@@ -484,6 +530,7 @@ users (1) ──< user_preferences >── (N) categories
 ## 🧪 Testing
 
 ### Run Tests
+
 ```bash
 # Run all tests
 php artisan test
@@ -496,6 +543,7 @@ php artisan test --coverage
 ```
 
 ### Test Structure
+
 ```
 tests/
 ├── Feature/
@@ -544,6 +592,7 @@ tests/
 ## 📝 Available Commands
 
 ### Artisan Commands
+
 ```bash
 # Fetch news articles
 php artisan news:fetch
@@ -565,6 +614,7 @@ php artisan test
 ```
 
 ### NPM Commands
+
 ```bash
 # Install dependencies
 npm install
@@ -578,22 +628,33 @@ npm run dev
 
 ---
 
+## 💰 Cost Analysis
 
-## 🤝 Contributing
+### Development (Mock Services)
+- **NewsAPI**: $0/month (using mock)
+- **OpenAI**: $0/month (using mock)
+- **Total**: **$0/month** ✅
 
-This is a technical interview project. If you'd like to suggest improvements:
+### Production (1,000 users, 10K articles/month)
+- **NewsAPI**: Free tier (100/day) or $449/month (unlimited)
+- **OpenAI**: ~$20/month (10K summaries @ $0.002 each)
+- **Server**: $20-50/month (VPS)
+- **Total**: **$40-520/month**
 
-1. Fork the repository
-2. Create feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to branch (`git push origin feature/AmazingFeature`)
-5. Open Pull Request
+### Budget Option
+- **RSS Feeds**: Free
+- **Hugging Face (Open-source AI)**: Free
+- **Server**: $20/month
+- **Total**: **$20/month** ✅
+
+**📚 Detailed Cost Analysis**: [docs/API-SETUP-GUIDE.md](docs/API-SETUP-GUIDE.md#cost-estimation)
 
 ---
 
-## 📄 License
 
-This project is open-source software licensed under the [MIT License](LICENSE).
+**🚀 Built with ❤️ for Newboxes Technical Interview**
+
+*Every line of code written with care | Documentation crafted for clarity | Architecture designed for scale*
 
 ---
 
